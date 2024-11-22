@@ -10,9 +10,9 @@
     display: none;
 }
 
-/* #spCommandBar {
+ #spCommandBar {
     display: none;
-} */
+} 
 
 
 .hero{
@@ -29,10 +29,10 @@
     position: relative;
     background-image: var(--background-image-pattern);
     background-size: 200px;
-    padding-inline: 24px;
-    z-index: 1;
-    padding-block: 3rem;
-    /* https://learn.microsoft.com/en-us/media/event-banners/banner-ignite-2024.jpg */
+    margin-left: -33px;
+    padding: 56px;
+    width: 102%;
+    margin-left: -33px;
 }
 
 .hero-content {
@@ -46,6 +46,7 @@
     margin: 0 !important;
     padding-block-start: 1rem !important;
 }
+
 .content h1 {
     word-wrap: break-word;
     word-break: break-word;
@@ -59,3 +60,4 @@
     margin-top: -10px;
     margin-bottom: 0;
 }
+

@@ -1,0 +1,46 @@
+[data-sp-feature-tag="PageTitle web part (Banner)"] {
+    display: none;
+}
+
+[data-automation-id="CanvasZone-SectionContainer"] {
+    max-width: 150% !important;
+}
+
+#sp-appBar {
+    display: none;
+}
+
+#spCommandBar {
+    display: none;
+} 
+
+.Microsoft {
+    color: #fff;
+    /* background-color: #1023d7;  */
+    background-image: url(https://learn.microsoft.com/en-us/media/event-banners/banner-ignite-2024.jpg);
+    background-size: 100%;
+    width: 95%;
+    padding: 79px;
+    margin-left: -33px;
+    outline-color: #fff !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    display: flex;
+    position: relative;
+    height: 118px;
+}
+
+.Description{
+    margin: 0 !important;
+}
+
+.Microsoft-content h2 {
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-top: 0;
+    margin-bottom: 12px;
+    /* font-size: clamp(1.875rem, 22.1053px + 1.64474vw, 2.5rem); */
+    font-size: 35px;
+    line-height: 1.3;
+}

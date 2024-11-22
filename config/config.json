@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/sharepointDesign/SharepointDesignWebPart.manifest.json"
         }
       ]
+    },
+    "microsoft-design-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/microsoftDesign/MicrosoftDesignWebPart.js",
+          "manifest": "./src/webparts/microsoftDesign/MicrosoftDesignWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "SharepointDesignWebPartStrings": "lib/webparts/sharepointDesign/loc/{locale}.js"
+    "SharepointDesignWebPartStrings": "lib/webparts/sharepointDesign/loc/{locale}.js",
+    "MicrosoftDesignWebPartStrings": "lib/webparts/microsoftDesign/loc/{locale}.js"
   }
 }

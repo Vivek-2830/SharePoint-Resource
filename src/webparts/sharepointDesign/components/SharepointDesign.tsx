@@ -3,6 +3,7 @@ import styles from './SharepointDesign.module.scss';
 import { ISharepointDesignProps } from './ISharepointDesignProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { sp } from '@pnp/sp/presets/all';
+import { Icon, PrimaryButton } from 'office-ui-fabric-react';
 
 export interface ISharepointDesignState {
 
@@ -11,6 +12,15 @@ export interface ISharepointDesignState {
 require("../assets/css/style.css");
 
 export default class SharepointDesign extends React.Component<ISharepointDesignProps, ISharepointDesignState> {
+
+  constructor(props: ISharepointDesignProps, state: ISharepointDesignState){
+    super(props);
+
+    this.state = {
+      
+    };
+  }
+
   public render(): React.ReactElement<ISharepointDesignProps> {
     const {
       description,

@@ -1,7 +1,7 @@
 {
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
-    "isCreatingSolution": true,
+    "isCreatingSolution": false,
     "version": "1.14.0",
     "libraryName": "share-point-resource",
     "libraryId": "287f6072-c863-40bc-aa90-1c90bbf6c6c5",
