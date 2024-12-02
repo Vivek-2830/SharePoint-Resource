@@ -2,11 +2,11 @@ import * as React from 'react';
 import styles from './SharepointDesign.module.scss';
 import { ISharepointDesignProps } from './ISharepointDesignProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { sp } from '@pnp/sp/presets/all';
+import { Item, sp } from '@pnp/sp/presets/all';
 import { Icon, PrimaryButton } from 'office-ui-fabric-react';
 
 export interface ISharepointDesignState {
-
+  SharePointData : any;
 }
 
 require("../assets/css/style.css");
@@ -17,7 +17,7 @@ export default class SharepointDesign extends React.Component<ISharepointDesignP
     super(props);
 
     this.state = {
-      
+      SharePointData : ""
     };
   }
 
@@ -39,16 +39,75 @@ export default class SharepointDesign extends React.Component<ISharepointDesignP
                 <div className='content'>
                   <div className="hero">
                     <div className="hero-content">
-                      <h1 className="title">Microsoft SharePoint documentation</h1>
+                      <h1 className="title">SharePoint Documentation</h1>
                       <p className='Description'>SharePoint documentation for IT professionals and admins</p>                      
-                      {/* <p className="Description">Discover how to make the most of Power Automate with online training courses, docs, and videos covering product capabilities and how-to articles. Learn how to quickly create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more.</p> */}
                     </div>
                   </div>
                 </div>
+
+                <div className='ms-Grid-col'>
+                  <div className='SharePoint-Info'>
+                    {
+                      this.state.SharePointData.length > 0 && 
+                        this.state.SharePointData.map((item) => {
+                          return(
+                            <>
+                              <div className='ms-Grid-col'>
+                                <div className='sharepoint'>
+                                  <div className='sharepoint-Icon'>
+                                    <Icon iconName='SharepointAppIcon16' className='Sharepoint-ic' />
+                                  </div>
+
+                                  <div className='SharePoint-Details'>
+                                    <a href='https://support.microsoft.com/en-us/office/what-is-sharepoint-97b915e6-651b-43b2-827d-fb25777f446f'>{item.Title}</a>
+                                    <p>{item.Description}</p>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </>
+                          );
+                        })
+                    }
+                  </div>  
+                </div>
+
               </div>
             </div>
           </div>
         </div>
     );
+}
+
+public async componentDidMount() {
+  this.GetSharePointDetails();
+}
+
+
+  public async GetSharePointDetails() {
+    const sharepoint = await sp.web.lists.getByTitle("SharePoint").items.select(
+      "ID",
+      "Title",
+      "Description"
+    ).get().then((data) => {
+      let AllData = [];
+      console.log(data);
+      console.log(sharepoint);
+
+      if(data.length > 0) {
+        data.forEach((item) => {
+          AllData.push({
+            ID: item.Id ? item.Id : "",
+            Title : item.Title ? item.Title : "",
+            Description : item.Description ? item.Description : "",
+          });
+        });
+        this.setState({ SharePointData : AllData });
+        console.log(this.state.SharePointData);
+      }
+    }).catch((Error) => {
+      console.log("Error Retrived", Error);
+    });
   }
+
 }
